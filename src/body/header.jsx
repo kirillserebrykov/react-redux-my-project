@@ -14,6 +14,7 @@ const Header = (props) => {
         <Link  className= "nav_link  Settings" id="Settings" text = "Settings" />
         <Link  className= "nav_link  Home" id="Home" text = "Home" />
         <Link  className= "nav_link  Posts" id="Posts" text = "Posts" />
+        <Link className= "nav_link  Posts" id="UserPage" text = "UserPage" />
         
 
          <a className="block_out" href="/login"><img className="out" src="https://www.freeiconspng.com/uploads/user-login-icon-14.png" alt=""/></a>
