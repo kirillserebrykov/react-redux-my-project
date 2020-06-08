@@ -1,26 +1,41 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Login from './login_to_ac/login';
+import Reg from './login_to_ac/register';
+import { BrowserRouter , Route, NavLink} from 'react-router-dom';
+import MainBody from './body/main';
 
-function App() {
+import PostsContainer from './continer/PostsContainer';
+
+
+
+const App = (props) => {
+  debugger
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <BrowserRouter>
+
+    <div className="wraper">
+      <Route path = "/register" component={Reg}/>
+      <Route path = "/login" component={Login}/>
+     
     </div>
+   
+    <div className="body" >
+   
+    <Route exact path = "/Home" component={MainBody}/>
+    <Route exact path = "/" component={MainBody}/>
+    <Route exact path = "/Posts" render={ () => <PostsContainer/> }/>
+    
+    
+    </div>
+    </BrowserRouter>
+    
+    
+    
   );
+ 
 }
+
+
 
 export default App;

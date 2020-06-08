@@ -1,0 +1,55 @@
+.header img{
+    width: 50px;
+    height: 50px;
+}
+.header{
+    max-width: 100vw;
+    overflow: hidden;
+    background-color: rgb(221, 155, 55);
+    height: 50px;
+        
+     
+
+}
+.nav_link{
+    display: inline-flex;
+    justify-content: flex-end;
+    position: relative;
+    left: 50%;
+    padding-left: 30px;
+    top: 15px;
+    color: #fff;
+    font-size: 15px;
+    
+    
+    
+}
+.nav_link:hover{
+   text-decoration: underline;
+}
+.block_out{
+    position: absolute;
+    right: 80px;
+    
+}
+
+
+.wraper_content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translate(0,40vh);
+    font-size: 70px;
+    color: rgba(255, 255, 255, 0.705);
+    text-transform: uppercase;
+    overflow: hidden;
+    
+}
+
+
+
+.shell_wraper{
+    background: url(https://images.unsplash.com/photo-1508612761958-e931d843bdd5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1558&q=80)0 0/cover;
+    height: 100vh;
+   
+}
