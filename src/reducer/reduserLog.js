@@ -1,15 +1,21 @@
+const UD = "users_data"
+
 let initialState ={
-    email:"",
-    login:"",
-    password:""
-
+    users:[ 
+        /* {id:"a",email:"b",password:"c",login:"d"},
+        {id:"a",email:"b",password:"c",login:"d"},
+        {id:"c",email:"d",password:"b",login:"a"}, */
+       
+    ]
 }
 
-export  const USER_DATA_CHANG_REREDUCER  = (state , action) => {
-    let stateCopy ={...state}
-    stateCopy.email="dsdadsa@dsadsad.com"
-    stateCopy.login="dsdadsa"
-    stateCopy.password="123321321"
+ const USER_DATA_CHANG_REREDUCER  = (state = initialState, action) => {
+        if(action.type === UD){
+            
+            return { ...state,users:action.usersDATA}
+        }
+        return state
+        
+    }
 
-    return stateCopy
-}
+    export default USER_DATA_CHANG_REREDUCER

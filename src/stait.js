@@ -6,6 +6,7 @@ import {MESEGES_REDUCER,MESS_CHANGE_REDUCER,USER_CHANG_REREDUCER} from "./reduce
 const ADD_MESS = "ADD-MESS";
 const MESS_CHANGE = "MESS-CHANGE";
 const USER_CHANGE = "USER-CHANGE";
+const UD = "users_data"
 //----------------------------------
 // функции для формирования dispatch --------------------------
 export const ADD_MESS_ACTION_CREATOR = (messtext,id) =>{
@@ -27,6 +28,14 @@ export const USER_CHANGE_ACTION_CREATOR = (id) =>{
     return {
         type:USER_CHANGE,
         userID:id,
+        
+    }
+}
+export const DATA_USER_CHANGE_AC = (users) =>{
+    debugger
+    return {
+        type:UD,
+        usersDATA:users,
         
     }
 }

@@ -20,7 +20,7 @@ let mapDispathToProps = (dispatch) => {
     return{
         addmess:(text,user) =>{
             dispatch(ADD_MESS_ACTION_CREATOR(text,user))
-            debugger
+            
         },
         onChange_user:(text) =>{
            

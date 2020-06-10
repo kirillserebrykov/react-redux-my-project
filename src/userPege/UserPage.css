@@ -1,7 +1,7 @@
 .wraper_UserPage{
     background-color: rgb(202, 127, 29);
     width: 100%;
-    height: 100vh;
+    height: 200vh;
     
 }
 
@@ -21,25 +21,37 @@
 }
 .user_data{
     margin-left: 50%;
-    transform: translate(-40%,0px);
+    transform: translate(-50%,0px);
   color: aliceblue;
   font-size: 20px;
 }
 
-.wrapper_img{
-   
+.avatar_data{
+    margin-left: 50%;
+    transform: translate(-50%,0px);
 }
  .data{
     display: flex;
     justify-content: center;
    
 }
-.img_to_data{
+.img_to_data {
     width: 30px;
     height: 30px;
-    margin-left: 40px;
+    
 }
 
 .user_data div{
     margin-bottom: 10px;
+    white-space: nowrap;
+}
+
+.buttonGet{
+    width: 60px;
+    height: 30px;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    background-color: rgb(226, 195, 58)
+
 }

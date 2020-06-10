@@ -1,6 +1,6 @@
 import {createStore,combineReducers} from "redux";
 import {MESEGES_REDUCER,MESS_CHANGE_REDUCER,USER_CHANG_REREDUCER} from "./reducer/reducer"
-import {USER_DATA_CHANG_REREDUCER} from "./reducer/reduserLog"
+import USER_DATA_CHANG_REREDUCER from "./reducer/reduserLog"
 
 const reducers = combineReducers({
    ADDMES:MESEGES_REDUCER,
