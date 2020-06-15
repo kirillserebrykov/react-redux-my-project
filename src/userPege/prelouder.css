@@ -1,0 +1,10 @@
+.prelouder{
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+   
+    border-radius: 10px;
+    opacity: 0.8;
+    z-index: 30;
+}

@@ -2,6 +2,7 @@
 const ADD_MESS = "ADD-MESS";
 const MESS_CHANGE = "MESS-CHANGE";
 const USER_CHANGE = "USER-CHANGE";
+
 //----------------------------------
 
 
@@ -31,11 +32,11 @@ export const MESEGES_REDUCER = (state = initialState, action) => {
         id: k,
 
         content: y}
-       debugger
+       
         let StateCopy ={...state}
         StateCopy.state_ ={...state.state_}
         StateCopy.state_.Mess =[...state.state_.Mess]
-        debugger
+     
        
         StateCopy.state_.Mess.push(newMess);
         k = ""

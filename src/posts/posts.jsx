@@ -15,7 +15,6 @@ const Posts = (props) => {
         props.addmess(text,user)
         
        
-        debugger
         
         
     }
@@ -42,7 +41,7 @@ const Posts = (props) => {
 
     return (
         <div>
-            <Header />
+            
             <div className="wraper__posts">
                 <div className="content__posts">
                     <h1>message </h1>

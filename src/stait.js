@@ -6,7 +6,12 @@ import {MESEGES_REDUCER,MESS_CHANGE_REDUCER,USER_CHANG_REREDUCER} from "./reduce
 const ADD_MESS = "ADD-MESS";
 const MESS_CHANGE = "MESS-CHANGE";
 const USER_CHANGE = "USER-CHANGE";
-const UD = "users_data"
+const PD = "profile_data"
+const UDO = "users_data_our"
+const P = "pages"
+const F = "isFetching"
+const T ="TotalUsersCount"
+const HD = "HADER_data"
 //----------------------------------
 // функции для формирования dispatch --------------------------
 export const ADD_MESS_ACTION_CREATOR = (messtext,id) =>{
@@ -16,7 +21,7 @@ export const ADD_MESS_ACTION_CREATOR = (messtext,id) =>{
         userID:id,
         
     }
-    debugger
+    
 }
 export const MESS_CHANGE_ACTION_CREATOR = (messtext) =>{
     return {
@@ -31,14 +36,57 @@ export const USER_CHANGE_ACTION_CREATOR = (id) =>{
         
     }
 }
-export const DATA_USER_CHANGE_AC = (users) =>{
-    debugger
+export const setProfile = (Profile) =>{
+    
     return {
-        type:UD,
-        usersDATA:users,
+        type:PD,
+        Profile
         
     }
 }
+
+export const setUsersOur = (users) =>{
+   
+    return {
+        type:UDO,
+        usersDATA_OUR:users[0],
+        
+    }
+}
+export const setPages = (pages) =>{
+   
+    return {
+        type:P,
+        pages:pages,
+        
+    }
+}
+export const toggelIsFetching = (isFetching) =>{
+   
+    return {
+        type:F,
+        isFetching,
+        
+    }
+}
+export const setTotalUsersCount = (TotalUsersCount) =>{
+   
+    return {
+        type:T,
+        count:TotalUsersCount[0],
+        
+    }
+}
+
+export const loginData = (data) =>{
+  
+    return {
+        type:HD,
+        data,
+        
+    }
+}
+
 
 
 //-------------------------------------------------------------

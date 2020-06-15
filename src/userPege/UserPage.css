@@ -1,7 +1,11 @@
 .wraper_UserPage{
     background-color: rgb(202, 127, 29);
     width: 100%;
-    height: 200vh;
+    min-height: 180vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  
     
 }
 
@@ -15,18 +19,25 @@
 .wraper_UserPage{
     display: flex;
     justify-content: center;
+   
     
 
 
 }
+
+
 .user_data{
     margin-left: 50%;
     transform: translate(-50%,0px);
   color: aliceblue;
   font-size: 20px;
+  position: relative;
+    z-index: 20;
+
 }
 
 .avatar_data{
+    padding-top: 20px;
     margin-left: 50%;
     transform: translate(-50%,0px);
 }
@@ -44,7 +55,9 @@
 .user_data div{
     margin-bottom: 10px;
     white-space: nowrap;
+    
 }
+
 
 .buttonGet{
     width: 60px;
@@ -54,4 +67,86 @@
     right: 0;
     background-color: rgb(226, 195, 58)
 
+}
+h2{
+    width: 250px;
+    height: 30px;
+   position: relative;
+   left: 50%;
+   margin-top: 34%;
+   transform: translate(-30%,-230%);
+   color: wheat;
+   font-size: 35px;
+
+    
+}
+.user_web{
+    width: 900px;
+    flex: 0 1 20.2%
+        
+
+}
+.navUser{
+    display: flex;
+    justify-content: center;
+    margin: auto 45%;
+  width: 100%;
+  transition: all 1s ease 0s;
+}
+.navUser span{
+      padding-left: 20px;
+      transform: translate(3450px,0px);
+      position: relative;
+      color: azure;
+      
+    font-size: 14px;
+}
+.navUser span:hover{
+  
+  font-size: 16px;
+}
+.buttonWraper{
+    display: flex;
+    
+}
+.next{
+    width: 50%;
+    
+    background-color: rgb(255, 154, 71);
+    
+}
+.next span{
+    color: #fff;
+    font-size: 20px;
+}
+.navUser .active {
+    font-size: 16px; 
+}
+.Our_users{
+    max-width: 1200px;
+    overflow: hidden;
+    display: flex;
+    flex-wrap:wrap;
+    position: relative;
+    left: 57%;
+    top: 30%;
+    transform: translate(-50%,-30px);
+    
+}
+.img_user_web{
+    width: 100px;
+    height: 100px;
+    margin-left: 50%;
+    transform: translate(-50%,0px);
+}
+.Body_User{
+    position: absolute;
+    top: 50px;
+    left: 50%;
+    transform: translate(-50%,0px);
+
+
+}
+.img_user_web:hover{
+    
 }
