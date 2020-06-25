@@ -1,18 +1,14 @@
 import React from 'react';
 import {connect} from 'react-redux'
-import {loginData} from "../stait"
+import {getMeLogin} from "../stait"
 import Header  from '../body/header'
-import * as axios from 'axios'
+
 
 class HeaderApi extends React.Component {
+    
     componentDidMount = () => {
        
-            axios.get("https://social-network.samuraijs.com/api/1.0/auth/me",{
-                withCredentials:true
-            }).then(respose => {
-                this.props.loginData([respose.data])
-                console.log(respose.data)
-            })
+        this.props.getMeLogin()
            
 
 }
@@ -33,5 +29,5 @@ let mapStatetoProps = (state) =>{
    }
    
    
-   let UserPegeContainer = connect(mapStatetoProps,{loginData})(HeaderApi);
+   let UserPegeContainer = connect(mapStatetoProps,{getMeLogin})(HeaderApi);
    export default UserPegeContainer

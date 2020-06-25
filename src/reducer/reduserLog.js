@@ -1,8 +1,10 @@
+
 const PD = "profile_data"
 const UDO = "users_data_our"
 const P = "pages"
 const F = "isFetching"
 const T ="TotalUsersCount"
+
 
 let initialState = {
     users: [
@@ -57,7 +59,7 @@ export const IS_FETCHING_CHANG_REREDUCER = (state = initialState, action) => {
 }
 export const TOTAL_USERS_COUNT_CHANG_REREDUCER = (state = initialState, action) => {
     if (action.type === T) {
-        
+            
         return { ...state, TotalUserCount:action.count }
     }
     return state

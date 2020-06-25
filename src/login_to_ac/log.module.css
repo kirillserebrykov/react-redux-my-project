@@ -1,0 +1,39 @@
+.wraperEmail input {
+  position: relative;
+}
+
+.beforeEmail {
+  transition: all 0.1s ease 0s;
+  -webkit-transition: all 0.1s ease 0s;
+  -moz-transition: all 0.1s ease 0s;
+  -ms-transition: all 0.1s ease 0s;
+  -o-transition: all 0.1s ease 0s;
+  position: absolute;
+  min-width: 50px;
+  height: 20px;
+  transform: translate(160px,-34px);
+  border-radius: 20px;
+  background-color: rgb(231, 170, 38);
+  opacity: 0.8;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+  -webkit-transform: translate(160px,-34px);
+  -moz-transform: translate(160px,-34px);
+  -ms-transform: translate(160px,-34px);
+  -o-transform: translate(160px,-34px);
+  padding: 14px;
+}
+.textError{
+  color: azure;
+  
+  display: block;
+  position: relative;
+  top: 50%;
+  transform: translate(0px,-50%);
+  -webkit-transform: translate(0px,-50%);
+  -moz-transform: translate(0px,-50%);
+  -ms-transform: translate(0px,-50%);
+  -o-transform: translate(0px,-50%);
+}

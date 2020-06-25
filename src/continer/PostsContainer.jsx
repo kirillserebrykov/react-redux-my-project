@@ -2,16 +2,18 @@ import React from 'react';
 import {connect} from 'react-redux'
 import Posts from '../posts/posts';
 import { ADD_MESS_ACTION_CREATOR, MESS_CHANGE_ACTION_CREATOR, USER_CHANGE_ACTION_CREATOR } from '../stait';
+import withCheckLoginUnlogin from '../Check'
+import { compose } from 'redux';
 
 
-
-
+let AuthRederectComponent = withCheckLoginUnlogin(Posts)
 let mapStatetoProps = (state) =>{
 
  return{
      PostsPage:state.ADDMES.state_,
      MessStandart:state.MessStandart,
-     UserStandart:state.UserStandart
+     UserStandart:state.UserStandart,
+     
  }
 
 }
@@ -34,6 +36,9 @@ let mapDispathToProps = (dispatch) => {
 
 }
 
-let PostsContainer = connect(mapStatetoProps,mapDispathToProps)(Posts);
 
-export default PostsContainer;
+
+export default compose(
+    connect(mapStatetoProps,mapDispathToProps),
+    withCheckLoginUnlogin
+)(Posts);

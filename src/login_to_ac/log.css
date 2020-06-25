@@ -2,17 +2,22 @@
     display: flex;
     justify-content: center;
     transform: translate(0,50%);
+    position: relative;
+    z-index: 5;
+    
+    
   }
   body{
       
   }
   .login_wraper{
-    width: 100vw;
+    width: 100%;
     height: 100vh;
-   overflow: hidden;
+  
     position: absolute;
     background: url(https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=541&q=80) 0 0/cover no-repeat;
-
+    display: flex;
+    overflow: hidden;
     
     
     
@@ -37,13 +42,16 @@
   
   .userName{
     margin-bottom: 10px;
+    margin-left: 5px;
     background-color: rgba(76, 145, 150, 0.863);
     border-radius: 3px;
+    color: #fff;
   }
   .password{
    background-color: rgb(207, 59, 59);
    border-radius: 3px;
    margin-bottom: 10px;
+   margin-left: 5px;
     
   }
   .login_play::placeholder{
@@ -51,13 +59,15 @@
      padding-left: 4px;
   }
   .password{
-  
+    color: #fff;
   }
   .sumbit{
     background-color: orangered;
     border-radius: 16px;
     color:#fff;
     margin-bottom: 10px;
+    
+
   }
   
   .Reg{

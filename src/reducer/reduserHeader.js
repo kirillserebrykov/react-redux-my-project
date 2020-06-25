@@ -8,6 +8,7 @@ let initialState = {
 
 
     ],
+    login_unlogin:0
     
 
 
@@ -17,7 +18,7 @@ let initialState = {
 export const HADER_DATA_CHANG_REREDUCER = (state = initialState, action) => {
     if (action.type === HD) {
         
-        return { ...state, data_login: action.data }
+        return { ...state, data_login: action.data,login_unlogin:action.data[0].resultCode }
     }
     return state
 

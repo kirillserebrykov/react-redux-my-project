@@ -6,8 +6,8 @@ import { BrowserRouter, Route, NavLink } from 'react-router-dom';
 import MainBody from './body/main';
 import UserPageContainer from './continer/UserPage_Container'
 import PostsContainer from './continer/PostsContainer';
-import HederContainer from './continer/HeaderContainer';
 
+import NewsContainer from './continer/NewsContainer';
 
 const App = (props) => {
  
@@ -19,14 +19,15 @@ const App = (props) => {
         <Route path="/login" component={Login} />
 
       </div>
-      <HederContainer/>
+      
       <div className="body" >
-
+      
         <Route exact path="/Home" component={MainBody} />
         <Route exact path="/" component={MainBody} />
+      
         <Route exact path="/Posts" render={() => <PostsContainer />} />
         <Route  path="/UserPage/:user_id?" render={() => <UserPageContainer />} />
-
+        <Route  path="/News" render={() => <NewsContainer />} />
 
       </div>
     </BrowserRouter>
