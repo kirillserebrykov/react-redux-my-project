@@ -3,8 +3,7 @@ import Header from '../body/header';
 import './posts.css'
 import { Redirect } from 'react-router';
 import HederContainer from '../continer/HeaderContainer';
-
-
+import {withCheckLoginUnlogin} from '../Check'
 
 
 let text_post = React.createRef();
@@ -64,4 +63,4 @@ class Posts extends React.Component {
 
 
 
-export default Posts;
+export default  (withCheckLoginUnlogin(Posts)) ;

@@ -67,7 +67,7 @@ export const MESS_CHANGE_REDUCER = (state = initialState.state_.MessStandart, ac
 }
 
 
-export const USER_CHANG_REREDUCER  = (state = initialState.state_.UserStandart, action) => {
+export const USER_CHANG_REDUCER  = (state = initialState.state_.UserStandart, action) => {
     
     if (action.type === USER_CHANGE) {
         let StateCopy ={...state}

@@ -1,20 +1,12 @@
 
 const NewsData = "NewsData"
 let initialState = {
-    news: [
-        /* {id:"a",email:"b",password:"c",login:"d"},
-        {id:"a",email:"b",password:"c",login:"d"},
-        {id:"c",email:"d",password:"b",login:"a"}, */
-
-
-    ],
+    news: [],
     isFetching:true,
-
-
 }
 
 
-export const News_Data_CHANG_REREDUCER = (state = initialState, action) => {
+export const News_Data_CHANG_REDUCER = (state = initialState, action) => {
     if (action.type === NewsData) {
         
         return { ...state, news:action.data }

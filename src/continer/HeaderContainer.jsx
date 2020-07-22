@@ -1,33 +1,19 @@
 import React from 'react';
-import {connect} from 'react-redux'
-import {getMeLogin} from "../stait"
-import Header  from '../body/header'
-
-
-class HeaderApi extends React.Component {
-    
-    componentDidMount = () => {
-       
-        this.props.getMeLogin()
-           
-
+import { connect } from 'react-redux'
+import {UnLogin } from "../stait"
+import Header from '../body/header'
+import {MassDataLogin,isAuthSeleted,idUserSeleted} from './selectors/SelectorHeader'
+const HeaderApi = (props) =>{
+        return <Header {...props} />
 }
-    render= () => {
-        return <Header {...this.props}/>
-    }
-
-    
-}
-
-let mapStatetoProps = (state) =>{
-    
+let mapStatetoProps = (state) => {
     return {
-        haderData:state.HADER
+        ID: MassDataLogin(state),
+        isAuth:isAuthSeleted(state),
+        idUser:idUserSeleted(state)
+    }
+}
 
-    }      
 
-   }
-   
-   
-   let UserPegeContainer = connect(mapStatetoProps,{getMeLogin})(HeaderApi);
-   export default UserPegeContainer
+let UserPegeContainer = connect(mapStatetoProps, {UnLogin})(HeaderApi);
+export default UserPegeContainer

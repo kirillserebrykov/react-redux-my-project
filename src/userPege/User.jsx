@@ -1,23 +1,23 @@
 import React from 'react'
 import './UserPage.css'
 import AvaDefult from "../avatarDefult.jpg"
-import { Redirect } from 'react-router';
 import HederContainer from '../continer/HeaderContainer';
+
 let Users = (props) => {
-//-------------------Проверка на куку------------------------\\   
+    //-------------------Проверка на куку------------------------\\   
     let next = React.createRef();
-    let vk = (DT) => {
-        if (DT.contacts.vk === null) return "Missing"
-        else return DT.contacts.vk
+    let vk = ({ contacts }) => {
+        if (contacts.vk === null) return "Missing"
+        else return contacts.vk
 
     }
-    let aboutMe = (DT) => {
-        if (DT.aboutMe === null) return "Missing"
-        else return DT.aboutMe
+    let aboutMe = ({ aboutMe }) => {
+        if (aboutMe === null) return "Missing"
+        else return aboutMe
     }
-   
-//-------------------Проверка на куку------------------------\\   
-//-------------------arey.map------------------------\\
+
+    //-------------------Проверка на куку------------------------\\   
+    //-------------------arey.map------------------------\\
     let mapUserMain = props.USER_DATA
         .map(DT =>
             <div key={DT.userId} className="user_data">
@@ -41,29 +41,31 @@ let Users = (props) => {
             </div>
 
         )
-//-------------------arey.map------------------------\\
-       
-//-------------------Кол-во страниц------------------------\\
+    //-------------------arey.map------------------------\\
+
+    //-------------------Кол-во страниц------------------------\\
     let pagesSize = Math.ceil(props.TotalUserCount / props.PageSize)
     let pages = []
     for (let i = 1; i <= pagesSize; i++) {
         pages.push(i)
     }
     let active = (p) => {
-        if (props.CurrentPage === p)  return "active"
+        if (props.CurrentPage === p) return "active"
     }
     let pagesCount = pages.map(p => {
         return <span key={p} onClick={(e) => { props.onPageChenged(p) }} className={active(p)}>{p}</span>
     })
-//-------------------Кол-во страниц------------------------\\
+    //-------------------Кол-во страниц------------------------\\
 
-//-------------------Слайдер------------------------\\
+    //-------------------Слайдер------------------------\\
     let left = 0
+    
     let nextfanc = () => {
         left = left - 400
-        if (left <= -8100) left = 0
+        if (left <= -next.current.offsetWidth + -5900) left = 0
         let t = 'translate(' + left + 'px, ' + 0 + 'px)';
         next.current.style.transform = t
+       
     }
     let backfanc = () => {
         left = left + 500
@@ -72,18 +74,12 @@ let Users = (props) => {
 
         next.current.style.transform = t
     }
-//-------------------Слайдер------------------------\\
-
-//-------------------Перенапровление на логин-------------------------\\
-
-//-------------------Перенапровление на логин------------------------\\
-
+    //-------------------Слайдер------------------------\\
     return (
         <div className="">
-            <HederContainer/> 
+            <HederContainer />
             <div className="wraper_UserPage">
                 <div className="Body_User">
-
                     {mapUserMain}
                 </div>
                 <h2>Our users</h2>

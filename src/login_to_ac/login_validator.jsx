@@ -1,6 +1,6 @@
 import React from 'react';
 import './log.css';
-
+  
 export const required_validator_email = (value = []) => {
   if (value.indexOf('@') === -1) return "Incorrect email"
   return undefined

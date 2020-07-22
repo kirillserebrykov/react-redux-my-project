@@ -23,7 +23,7 @@ let initialState = {
 
 }
 
-export const USER_DATA_CHANG_REREDUCER = (state = initialState, action) => {
+export const USER_DATA_CHANG_REDUCER = (state = initialState, action) => {
 
     if (action.type === PD) {
 
@@ -32,7 +32,7 @@ export const USER_DATA_CHANG_REREDUCER = (state = initialState, action) => {
     return state
 
 }
-export const USER_DATA_CHANG_OUR_REREDUCER = (state = initialState, action) => {
+export const USER_DATA_CHANG_OUR_REDUCER = (state = initialState, action) => {
     if (action.type === UDO) {
 
         return { ...state, users: action.usersDATA_OUR }
@@ -40,7 +40,7 @@ export const USER_DATA_CHANG_OUR_REREDUCER = (state = initialState, action) => {
     return state
 
 }
-export const PAGES_SIZE_CHANG_REREDUCER = (state = initialState, action) => {
+export const PAGES_SIZE_CHANG_REDUCER = (state = initialState, action) => {
     if (action.type === P) {
 
         return { ...state, CurrentPage: action.pages }
@@ -49,7 +49,7 @@ export const PAGES_SIZE_CHANG_REREDUCER = (state = initialState, action) => {
 
 }
 
-export const IS_FETCHING_CHANG_REREDUCER = (state = initialState, action) => {
+export const IS_FETCHING_CHANG_REDUCER = (state = initialState, action) => {
     if (action.type === F) {
 
         return { ...state, isFetching: action.isFetching }
@@ -57,7 +57,7 @@ export const IS_FETCHING_CHANG_REREDUCER = (state = initialState, action) => {
     return state
 
 }
-export const TOTAL_USERS_COUNT_CHANG_REREDUCER = (state = initialState, action) => {
+export const TOTAL_USERS_COUNT_CHANG_REDUCER = (state = initialState, action) => {
     if (action.type === T) {
             
         return { ...state, TotalUserCount:action.count }

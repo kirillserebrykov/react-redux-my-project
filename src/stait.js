@@ -1,7 +1,7 @@
-import { MESEGES_REDUCER, MESS_CHANGE_REDUCER, USER_CHANG_REREDUCER } from "./reducer/reducer"
+
+
 import { DalApi } from './DAL/API'
-
-
+import { stopSubmit } from 'redux-form';
 //  ПЕРЕМЕННЫЕ TYPE  ------------------------------------------
 const ADD_MESS = "ADD-MESS";
 const MESS_CHANGE = "MESS-CHANGE";
@@ -20,9 +20,7 @@ export const ADD_MESS_ACTION_CREATOR = (messtext, id) => {
         type: ADD_MESS,
         messgetext: messtext,
         userID: id,
-
     }
-
 }
 export const MESS_CHANGE_ACTION_CREATOR = (messtext) => {
     return {
@@ -79,11 +77,13 @@ export const setTotalUsersCount = (TotalUsersCount) => {
     }
 }
 
-export const loginData = (data) => {
-
+export const loginData = (data,boolen) => {
+debugger    
     return {
         type: HD,
-        data: data,
+        data: data[0],
+        isAuth:boolen,
+       
 
     }
 }
@@ -96,80 +96,102 @@ export const News_Data = (data) => {
     }
 }
 
-export const setProfileAPI = (user_id_url) => (dispath) => {
 
-    dispath(toggelIsFetching(true))
-    DalApi.UserPage_Api(user_id_url).then(data => {
-        dispath(setProfile([data]))
-        dispath(toggelIsFetching(false))
-    })
+export const setProfileAPI = (user_id_url) => async(dispatch) => {
+
+    dispatch(toggelIsFetching(true))
+    let data = await  DalApi.UserPage_Api(user_id_url)
+        dispatch(setProfile([data]))
+        dispatch(toggelIsFetching(false))
+    
 }
 
-export const UserPage_OUR_Api = (CurrentPage, PageSize) => (dispath) => {
-    dispath(toggelIsFetching(true))
-    DalApi.UserPage_OUR_Api(CurrentPage, PageSize).then(data => {
-        dispath(setUsersOur([data.items]))
-        dispath(setTotalUsersCount([data.totalCount]))
-        dispath(toggelIsFetching(false))
-    })
+export const UserPage_OUR_Api = (CurrentPage, PageSize) => async(dispatch) => {
+    dispatch(toggelIsFetching(true))
+    let data = await DalApi.UserPage_OUR_Api(CurrentPage, PageSize)
+        dispatch(setUsersOur([data.items]))
+        dispatch(setTotalUsersCount([data.totalCount]))
+        dispatch(toggelIsFetching(false))
+    
 }
-export const getUsersOur = (pagesNum,PageSize) => (dispath) => {
-    dispath(setPages(pagesNum))
-    dispath(toggelIsFetching(true))
-    DalApi.Users(pagesNum,PageSize).then(respose => {
-        dispath(setUsersOur([respose.data.items]))
-        dispath(toggelIsFetching(false))
-    })
+export const getUsersOur = (pagesNum,PageSize) => async(dispatch) => {
+    dispatch(setPages(pagesNum))
+    dispatch(toggelIsFetching(true))
+    let respose = await  DalApi.Users(pagesNum,PageSize)
+        dispatch(setUsersOur([respose.data.items]))
+        dispatch(toggelIsFetching(false))
+    
+    
 }
-export const NewsDataApi  = () => (dispath) =>{
-    dispath(toggelIsFetching(true))
-          DalApi.NewsAPI().then(data => {
-            dispath(toggelIsFetching(false))
-            dispath(News_Data([data.articles]))
-            
-            
-        })}
+export const NewsDataApi  = () =>  async(dispatch) =>{
+    dispatch(toggelIsFetching(true))
+        let {articles}= await DalApi.NewsAPI()
+            dispatch(toggelIsFetching(false))
+            dispatch(News_Data([articles]))
+        }
  
-export const getMeLogin = () => (dispath) =>{
-        DalApi.GetLoginApi().then(respose => {
-            dispath(loginData([respose.data]))
-        })
+export const getMeLogin = () => async(dispatch) =>{
+       let response = await  DalApi.GetLoginApi()
+            if(response.data.resultCode === 0)dispatch(loginData([response.data],true))
+            else dispatch(loginData([response.data],false))  
 } 
+  
+
+export const Login = (email,password,remeberMe)  => async(dispatch) =>{
+    let {resultCode,response} = await   DalApi.PostLoginData(email,password,remeberMe)
+    if(resultCode === 0){
+        dispatch(getMeLogin(email,password,remeberMe))
+    }
+    else{
+        let messages = response.data.messages[0]
+        dispatch(stopSubmit('Login',{_error:`Hmm ${messages} !` }))
+        dispatch(toggelIsFetching(false))
+    }
+}
+export const UnLogin = () => async(dispatch) =>{
+   
+    let response = await   DalApi.DelLoginData()
+        if(response.data.resultCode === 0 ){
+            dispatch(loginData([response.data],false))
+           }
+    
+     
+    }
 //-------------------------------------------------------------
 
 // store ------------------------------------------------------
-const store = {
-    renderDOM() {
+// const store = {
+//     renderDOM() {
 
-    },
-    state_: {
-        Mess: [{
-            id: "Admin ",
-            content: "Hi",
-        }],
-
-
-        MessStandart: "",
-        UserStandart: "",
-
-    },
+//     },
+//     state_: {
+//         Mess: [{
+//             id: "Admin ",
+//             content: "Hi",
+//         }],
 
 
-    subscribe(observer) {
-        this.renderDOM = observer
-    },
+//         MessStandart: "",
+//         UserStandart: "",
 
-    dispatch(action) {
+//     },
 
-        this.state_ = MESEGES_REDUCER(this.state_, action);
-        this.renderDOM()
 
-        this.state_ = MESS_CHANGE_REDUCER(this.state_, action);
-        this.renderDOM()
-        this.state_ = USER_CHANG_REREDUCER(this.state_, action);
-        this.renderDOM()
-    }
-}
+//     subscribe(observer) {
+//         this.renderDOM = observer
+//     },
+
+//     dispatch(action) {
+
+//         this.state_ = MESEGES_REDUCER(this.state_, action);
+//         this.renderDOM()
+
+//         this.state_ = MESS_CHANGE_REDUCER(this.state_, action);
+//         this.renderDOM()
+//         this.state_ = USER_CHANG_REREDUCER(this.state_, action);
+//         this.renderDOM()
+//     }
+// }
 //------_---------------------------------------------
 
 

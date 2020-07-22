@@ -6,7 +6,7 @@ import withCheckLoginUnlogin from '../Check'
 import { compose } from 'redux';
 
 
-let AuthRederectComponent = withCheckLoginUnlogin(Posts)
+
 let mapStatetoProps = (state) =>{
 
  return{
@@ -40,5 +40,5 @@ let mapDispathToProps = (dispatch) => {
 
 export default compose(
     connect(mapStatetoProps,mapDispathToProps),
-    withCheckLoginUnlogin
+    
 )(Posts);

@@ -1,5 +1,7 @@
 
+       
 import * as axios from 'axios'
+
 
 const instance = axios.create({
     baseURL: 'https://social-network.samuraijs.com/api/1.0/'
@@ -12,7 +14,10 @@ export const DalApi = {
         })
 
     },
-    UserPage_Api(user_id_url = 2) {
+    UserPage_Api(user_id_url ) {
+       
+       
+       
         return instance.get("profile/" + user_id_url).then(response => {
             return response.data
         })
@@ -30,12 +35,18 @@ GetLoginApi (){
                 withCredentials:true
             })
 },
-PostLoginData(email,password){
+PostLoginData(email,password,rememberMe = false){
+    debugger
    return  instance.post("/auth/login",{
         email:email,
-        password:password
+        password:password,
+        rememberMe:rememberMe
 
-    })
-}
+    },{withCredentials:true})
+},
+DelLoginData(){
+    return  instance.delete("/auth/login" ,)
+ }
+ 
 }
 
